@@ -1,5 +1,5 @@
 import React from 'react';
-import '../src/stories/_shopping_cart_universe.scss'
+import '../src/ux/stories/_shopping_cart_universe.scss'
 
 export const parameters = {
   viewport: {

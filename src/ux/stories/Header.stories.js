@@ -5,6 +5,9 @@ import { Header } from './Header';
 export default {
   title: 'Example/Header',
   component: Header,
+  parameters: {
+    position: "1.0"
+  }
 };
 
 const Template = (args) => <Header {...args} />;
