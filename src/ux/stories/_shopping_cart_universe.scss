@@ -1,18 +1,35 @@
-.bg-primary{
+.bg-primary {
   background-color: #3498DB;
 }
-  
-.bg-secondary{
+
+.bg-secondary {
   background-color: #2ECC71;
 }
-  
-.d-flex{
+
+.bg-third {
+  background-color: #11D000;
+}
+
+.d-flex {
   display: flex;
 
 }
 
-.justify-content-between{
+.justify-content-between {
   justify-content: space-between;
 }
 
-@import './header/header'
+.justify-content-center {
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  justify-content: center;
+}
+
+@import './header/header';
+@import './product_item/product_item'
