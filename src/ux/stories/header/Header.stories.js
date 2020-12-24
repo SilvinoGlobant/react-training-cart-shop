@@ -3,7 +3,7 @@ import React from 'react';
 import { Header } from './Header';
 
 export default {
-  title: 'Example/Header',
+  title: 'Core/Header',
   component: Header,
   parameters: {
     position: "1.0"
@@ -17,5 +17,4 @@ LoggedIn.args = {
   user: {},
 };
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
+

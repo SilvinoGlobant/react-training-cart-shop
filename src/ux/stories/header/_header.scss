@@ -1,0 +1,38 @@
+.header {
+
+  height: 90px;
+
+  .globant-shops {
+    position: relative;
+    left: 37px;
+  }
+
+  .shopping-cart {
+    position: relative;
+    top: 23px;
+    right: 75px;
+
+    .shopping-cart-number-items {
+      position: absolute;
+      width: 23px;
+      height: 23px;
+      bottom: 67px;
+      left: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: crimson;
+
+      span {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+
+  }
+
+}
