@@ -1,0 +1,21 @@
+.sidebar {
+    width: 259px;
+    height: 100vh;
+    border-right: 1px solid #C6C2C2;
+
+    p {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    .sidebar-options {
+        position: relative;
+        left: 41px;
+
+        .filters {}
+    }
+
+}
