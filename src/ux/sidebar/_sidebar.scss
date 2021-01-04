@@ -1,8 +1,12 @@
 .sidebar {
+    z-index: 1000;
+    position: fixed;
+    top: 100px;
     width: 259px;
     height: 100vh;
+    transition: left 250ms;
+    -webkit-transform: left 250ms;
     border-right: 1px solid #C6C2C2;
-
 
     .sidebar-options {
         position: relative;
@@ -69,4 +73,9 @@
         }
     }
 
+}
+
+.sidebar-close {
+    width: 0px !important;
+    display: none;
 }

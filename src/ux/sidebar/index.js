@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-export const Sidebar = () => (
-    <div className="sidebar">
+export const Sidebar = ({ isOpen = false }) => (
+    <div className={isOpen ? 'sidebar' : 'sidebar-close'}>
         <div className="sidebar-options">
             <div className="filters">
 
