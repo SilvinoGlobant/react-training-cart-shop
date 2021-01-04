@@ -3,8 +3,10 @@ import apiReducer from '../../../api/reducer';
 
 export default combineReducers({
     api: combineReducers({
-        products: combineReducers({
-            productsList: apiReducer('products/load')
+        core: combineReducers({
+            products: combineReducers({
+                list: apiReducer('products/load')
+            })
         })
     })
 })

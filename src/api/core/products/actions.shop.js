@@ -10,6 +10,7 @@ export default {
             // }
         },
         reducer,
+        store: 'list'
 
     })
 }

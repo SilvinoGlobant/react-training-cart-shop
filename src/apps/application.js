@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-// import { productsActions } from './shopping_cart/actions';
+import { productsActions } from './shopping_cart/actions';
+import { currentListSelector } from './shopping_cart/selectors'
 import loadable from '@loadable/component';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -15,22 +16,13 @@ const Demo = () => {
 }
 
 
-function Application({ getProducts }) {
-    let currentAppName = 'shopping_cart'
-    // useEffect(() => {
-    //     getProducts();
-    // }, [])
+function Application() {
+    let currentAppName = 'shopping_cart';
     return (<Router>
         <Route path="/" element={currentAppName ? <DynamicApp name={currentAppName} /> : <Demo />} />
     </Router>);
 }
 
 export default connect(
-    // state => ({
-    //     list: state.shopping.api.productsList
-    // }),
-    // dispatch => ({
-    //     getProducts: () => dispatch(productsActions.get())
-    // })
 
 )(Application);

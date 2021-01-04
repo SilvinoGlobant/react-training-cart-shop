@@ -3,7 +3,6 @@ export default function apiReducer(name) {
     return (state = {}, action) => {
 
         if (!action || !action.type || !action.type.includes(name)) {
-            console.log('state', state)
             return state;
         }
 
