@@ -6,6 +6,7 @@ import loadable from '@loadable/component';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
+
 const DynamicApp = loadable(({ name }) => import(`./${name}`), {
     cacheKey: props => props.name,
     fallback: () => <div> Loading ... </div>
