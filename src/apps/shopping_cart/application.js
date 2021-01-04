@@ -1,29 +1,23 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-// import userActions from 'api/core/users/actions.common.js';
-import loadable from '@loadable/component';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { productsActions } from '../shopping_cart/actions';
 
 
-const DynamicApp = loadable(({ name }) => import(`./${name}`), {
-    cacheKey: props => props.name,
-    fallback: () => <div> Loading ... </div>
-});
+function Application({ getProducts, list }) {
 
-const Demo = () => {
-    return <div>Demo </div>
-}
+    useEffect(() => {
+        getProducts();
+    }, [])
 
-
-function Application() {
-    let currentAppName;
-
-    return (<Router>
-        <Route path="/" element={<Demo />} />
-    </Router>);
+    return <h1>App started</h1>
 }
 
 export default connect(
-
+    state => ({
+        list: state.shopping.api.productsList
+    }),
+    dispatch => ({
+        getProducts: () => dispatch(productsActions.get())
+    })
 
 )(Application);

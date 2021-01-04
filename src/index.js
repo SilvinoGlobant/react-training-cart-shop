@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Shopping from './apps/shopping_cart';
+import Shopping from './apps';
 
 ReactDOM.render(
   <React.StrictMode>

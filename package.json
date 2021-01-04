@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.4",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.0",
+    "cors": "^2.8.5",
     "dayjs": "^1.8.36",
     "history": "^5.0.0",
     "i18next": "^19.7.0",

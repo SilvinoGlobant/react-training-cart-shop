@@ -1,14 +1,11 @@
 import React from 'react';
-import { Provider } from "react-redux";
-import Aplication from './application';
-import createStore from "./store";
-
-const store = createStore();
-function Shopping() {
-    return (<Provider store={store}>
-        <Aplication />
-    </Provider>)
+import { DynamicModuleLoader } from "redux-dynamic-modules-react";
+import shoppingModule from './module';
+import ShoppingCart from './application';
+function Cart() {
+    return (<DynamicModuleLoader modules={[shoppingModule()]}>
+        <ShoppingCart />
+    </DynamicModuleLoader>)
 
 }
-
-export default Shopping;
+export default Cart;

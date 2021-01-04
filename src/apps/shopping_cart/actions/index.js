@@ -1,0 +1,1 @@
+export { default as productsActions } from '../../../api/core/products/actions.shop';
