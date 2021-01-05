@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ProductItem } from '../../stories/product_item/product_item';
+import { ProductItem } from '../../product_item';
 
 export const OurProducts = () => <div >
     <div className='our-products'>

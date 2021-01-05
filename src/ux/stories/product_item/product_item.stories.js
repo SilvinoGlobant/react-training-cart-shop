@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ProductItem } from './product_item';
+import { ProductItem } from '../../product_item';
 
 export default {
     title: 'Core/ProductItem',

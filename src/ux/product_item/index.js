@@ -1,7 +1,7 @@
 import React from 'react';
-import coffe from '../../../assets/coffe.svg'
-import star_rate from '../../../assets/star-rate.svg'
-import comment from '../../../assets/comment.png'
+import coffe from '../../assets/coffe.svg'
+import star_rate from '../../assets/star-rate.svg'
+import comment from '../../assets/comment.png'
 export const ProductItem = () => {
     return <>
         <div className="product-item d-flex flex-column">
