@@ -7,11 +7,11 @@ export const Header = ({ handleIsOpenSidebar }) => (
 	<header>
 		<div className="header bg-primary d-flex justify-content-between">
 			<div className='globant-shops'>
-				<img src={globant_shops} onClick={handleIsOpenSidebar} />
+				<img src={globant_shops} onClick={handleIsOpenSidebar} alt='globant_shops' />
 			</div>
 
 			<div className='shopping-cart'>
-				<img src={shopping_cart} />
+				<img src={shopping_cart} alt='shopping_cart' />
 				<div className='shopping-cart-number-items'><span>3</span></div>
 			</div>
 

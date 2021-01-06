@@ -8,7 +8,7 @@ export const OurProducts = ({ list }) => <div >
             <p>Our products:</p>
         </div>
         <div className='d-flex flex-wrap'>
-            {list.map(item => <ProductItem {...item} />)}
+            {list.map(item => <ProductItem key={`item-${item.id}`} {...item} />)}
 
         </div>
 

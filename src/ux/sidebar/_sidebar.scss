@@ -14,7 +14,8 @@
 
         p,
         label,
-        select {
+        select,
+        option {
             margin: 0;
             font-family: Roboto;
             font-style: normal;
@@ -64,12 +65,9 @@
         }
 
         .sortby {
-            div {
-                select {
-                    width: 175px;
-                }
+            select {
+                width: 175px;
             }
-
         }
     }
 

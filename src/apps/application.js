@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { productsActions } from './shopping_cart/actions';
-import { currentListSelector } from './shopping_cart/selectors'
 import loadable from '@loadable/component';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-
 
 const DynamicApp = loadable(({ name }) => import(`./${name}`), {
     cacheKey: props => props.name,

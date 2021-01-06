@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { OurProducts } from '../../../../ux/views/our_products';
 
 export default function MainPage({ productList }) {

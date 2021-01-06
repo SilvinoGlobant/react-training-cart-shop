@@ -37,10 +37,9 @@ function Application({ getProducts, productList }) {
             const filteredList = productList.records
                 .filter(item => item.basics)
                 .filter(element => {
-                    if (item === 1 && (element.price >= 1 && element.price <= 50)) return item
-                    if (item === 2 && (element.price >= 51 && element.price <= 100)) return item
-                    if (item === 3 && (element.price >= 101 && element.price <= 200)) return item
-
+                    if (item === 1 && (element.price >= 1 && element.price <= 50)) return item;
+                    if (item === 2 && (element.price >= 51 && element.price <= 100)) return item;
+                    if (item === 3 && (element.price >= 101 && element.price <= 200)) return item;
                 });
 
             setProductListA(filteredList);
@@ -48,9 +47,9 @@ function Application({ getProducts, productList }) {
         }
 
         const filteredList = productList.records.filter(element => {
-            if (item === 1 && (element.price >= 1 && element.price <= 50)) return item
-            if (item === 2 && (element.price >= 51 && element.price <= 100)) return item
-            if (item === 3 && (element.price >= 101 && element.price <= 200)) return item
+            if (item === 1 && (element.price >= 1 && element.price <= 50)) return item;
+            if (item === 2 && (element.price >= 51 && element.price <= 100)) return item;
+            if (item === 3 && (element.price >= 101 && element.price <= 200)) return item;
         });
 
         setProductListA(filteredList);
@@ -61,14 +60,14 @@ function Application({ getProducts, productList }) {
         if (!productList.records) {
             getProducts();
         }
-    }, [])
+    }, [productList.records, getProducts])
 
     useEffect(() => {
         if (productList?.records?.length > 0) {
             setProductListA(productList?.records);
             navigate('/shopping')
         }
-    }, [productList])
+    }, [productList, navigate])
 
     return <Routes>
         <Route path='/'
@@ -96,6 +95,3 @@ export default connect(
 
 )(Application);
 
-const Demo = () => {
-    return <h3>demo</h3>
-}
