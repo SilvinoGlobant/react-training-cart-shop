@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-export const Sidebar = ({ isOpen = false }) => (
+export const Sidebar = ({ isOpen = false, handleFilterList }) => (
     <div className={isOpen ? 'sidebar' : 'sidebar-close'}>
         <div className="sidebar-options">
             <div className="filters">
@@ -11,7 +11,7 @@ export const Sidebar = ({ isOpen = false }) => (
                 <div className='filters-container'>
                     <div>
                         <input type="checkbox" id="basics" name="basics"
-                            checked />
+                            onChange={handleFilterList} />
                         <label for="vasics">Basics</label>
                     </div>
                 </div>
