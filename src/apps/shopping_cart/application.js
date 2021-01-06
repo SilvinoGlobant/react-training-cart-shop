@@ -26,7 +26,7 @@ function Application({ getProducts, productList }) {
 
     return <Routes>
         <Route path='/' element={<Layout />}>
-            <Route path='shopping' element={<MainPage />} />
+            <Route path='shopping' element={<MainPage productList={productList} />} />
         </Route>
     </Routes>
 }
