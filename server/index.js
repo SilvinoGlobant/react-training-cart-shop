@@ -20,7 +20,7 @@ app.get('/products', (req, res) => {
       if (req.query.filter && req.query.filter === 'basics') {
         result = result.filter(_product => _product.basics);
       }
-      
+
       if (req.query.sort) {
         result = result.sort(sortFns[`sort${req.query.sort}`]);
       }
@@ -43,7 +43,23 @@ app.get('/products', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.json({message: 'CANNOT_RETURN_ELEMENTS'})
+      res.json({ message: 'CANNOT_RETURN_ELEMENTS' })
+    });
+});
+
+app.get('/products/:productId', (req, res) => {
+  axios
+    .get('https://picsum.photos/v2/list')
+    .then((results) => {
+      let result = mockDetail;
+      const imgData = results.data;
+      const productId = parseInt(req.params.productId);
+      result = result.find((product) => product.id === productId);
+      res.json({ ...result, img: imgData[productId - 1].download_url });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({ message: 'CANNOT_RETURN_PRODUCT_DETAIL' });
     });
 });
 
@@ -84,6 +100,8 @@ app.post('/order', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+
 
 const sortFns = {
   sortPrices: function sortPrices(_productA, _productB) {
