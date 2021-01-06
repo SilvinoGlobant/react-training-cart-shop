@@ -1,17 +1,20 @@
-import React from 'react'
-import { ProductItem } from '../../../../ux/stories/product_item/product_item'
-export default function MainPage(params) {
+import React, { useEffect, useState } from 'react';
+import { OurProducts } from '../../../../ux/views/our_products';
 
-    return <div className='main-page d-flex flex-wrap'>
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-    </div>
+export default function MainPage({ productList }) {
+
+    const [list, setList] = useState([])
+
+    useEffect(() => {
+        if (productList.isLoading) return;
+        setList(productList?.records ?? [])
+    }, [productList])
+
+
+    if (productList.isLoading) {
+        return <h4>Loading list ...</h4>
+    }
+
+    return <OurProducts list={list} />
+
 }
