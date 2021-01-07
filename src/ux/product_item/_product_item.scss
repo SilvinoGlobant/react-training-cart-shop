@@ -15,7 +15,6 @@
 		font-weight: normal;
 		font-size: 16px;
 		line-height: 19px;
-		/* identical to box height */
 
 
 		color: #0F1111;
@@ -38,11 +37,17 @@
 		height: 119px;
 		width: 89px;
 		left: 35%;
+		margin-bottom: 12px;
 		position: relative;
 	}
 
 	.item-amount {
 		margin-bottom: 23px;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 21px;
 	}
 
 	.rate-container {
@@ -58,6 +63,14 @@
 		}
 
 		.comment-container {
+			span {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 14px;
+			}
+
 			img {
 				width: 12px;
 				height: 10px;
@@ -65,10 +78,8 @@
 		}
 	}
 
-
-
-
 	.btn-container {
+
 		button {
 			border: 1px solid black;
 			margin-bottom: 5px;

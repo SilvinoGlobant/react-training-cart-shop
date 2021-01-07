@@ -3,7 +3,17 @@ import coffe from '../../assets/coffe.svg';
 import star_rate from '../../assets/star-rate.svg';
 import comment from '../../assets/comment.png';
 
-export function ProductItem({ id, name, rate, price, comments, basics, img }) {
+export function ProductItem({
+    id,
+    name,
+    rate,
+    price,
+    comments,
+    basics,
+    img,
+    navigateToDetails
+}) {
+
     return <div className="product-item d-flex flex-column">
         {basics ? <span className='badge bg-third d-flex justify-content-center'>BASIC</span> : null}
         <img className='img-item' src={img || coffe} alt="" />
@@ -23,7 +33,9 @@ export function ProductItem({ id, name, rate, price, comments, basics, img }) {
         </div>
         <p className='item-amount'>${price || '0.00'}</p>
         <div className='btn-container d-flex flex-column'>
-            <button className='bg-primary'>See details</button>
+            <button
+                className='bg-primary'
+                onClick={() => navigateToDetails(id)}>See details</button>
             <button className='bg-secondary'> Add to cart</button>
         </div>
     </div>
