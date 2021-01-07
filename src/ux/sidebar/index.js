@@ -28,10 +28,6 @@ export default function Sidebar({
         handleSortBy(value);
     }
 
-
-
-
-
     return (
         <div className={isOpen ? 'sidebar' : 'sidebar-close'}>
             <div className="sidebar-options">
@@ -41,7 +37,7 @@ export default function Sidebar({
                         <div>
                             <input type="checkbox" id="basics" name="basics"
                                 onChange={handleFilterList} />
-                            <label htmlFor="vasics">Basics</label>
+                            <label htmlFor="basics">Basics</label>
                         </div>
                     </div>
                 </div>
