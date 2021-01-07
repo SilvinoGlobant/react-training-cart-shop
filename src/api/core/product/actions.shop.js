@@ -1,16 +1,7 @@
 import apiAction from '../../action';
-const reducer = 'products/load';
+const reducer = 'product/load-details';
 
 export default {
-    get: () => apiAction({
-        request: {
-            url: 'http://localhost:8080/products',
-            // params:{
-            //     incl
-            // }
-        },
-        reducer,
-    }),
     getDetails: (productId) => apiAction({
         request: {
             url: `http://localhost:8080/products/${productId}`,
@@ -19,6 +10,5 @@ export default {
             // }
         },
         reducer,
-        store: 'currentProductDetail'
     }),
 }
