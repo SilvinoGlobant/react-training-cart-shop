@@ -1,4 +1,5 @@
 import React from 'react';
+import { CommentDemo } from '../comment/comment.stories';
 
 export default {
     title: 'Core/Comments',
@@ -12,7 +13,10 @@ const Comments = (args) => (
     <div className='comments'>
         <p className='comments-title'>Comments:</p>
         <div className='comments-container'>
-
+            <CommentDemo />
+            <CommentDemo />
+            <CommentDemo />
+            <CommentDemo />
         </div>
     </div>
 );
