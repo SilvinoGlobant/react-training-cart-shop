@@ -34,8 +34,13 @@ export default function Layout({
             handleSortBy={handleSortBy}
         />
         <div
-            className='main-container d-flex flex-wrap'
-            style={{ width: '100%', height: '100vh', marginTop: 90, left: 347, position: 'relative' }}
+            style={{
+                position: 'relative',
+                width: '100%',
+                height: '100vh',
+                marginTop: 90,
+                marginLeft: 347,
+            }}
             onClick={handleCloseSidebar}
         >
             <Outlet />
