@@ -38,5 +38,6 @@ export function ProductItem({
                 onClick={() => navigateToDetails(id)}>See details</button>
             <button className='bg-secondary'> Add to cart</button>
         </div>
+        <div className='w-100 border-bottom' />
     </div>
 }
