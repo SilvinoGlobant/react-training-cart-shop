@@ -7,7 +7,9 @@ export default function Sidebar({
     handleFilterList,
     handlePricesOptions,
     radioButtonActive,
-    setRadioButtonActive }) {
+    setRadioButtonActive,
+    handleSortBy
+}) {
 
     const handleSelectedRadioButton = (event) => {
         const value = +event.target.value;
@@ -22,9 +24,11 @@ export default function Sidebar({
     const handleSelectSortBy = (event) => {
         const value = event.target.value;
 
-        console.log('Select value', value);
-
+        if (!handleSortBy) return;
+        handleSortBy(value);
     }
+
+
 
 
 

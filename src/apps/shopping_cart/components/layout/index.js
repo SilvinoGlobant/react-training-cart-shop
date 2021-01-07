@@ -7,7 +7,9 @@ export default function Layout({
     handleFilterList,
     handlePricesOptions,
     radioButtonActive,
-    setRadioButtonActive }) {
+    setRadioButtonActive,
+    handleSortBy
+}) {
 
     const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
@@ -29,6 +31,7 @@ export default function Layout({
             handlePricesOptions={handlePricesOptions}
             radioButtonActive={radioButtonActive}
             setRadioButtonActive={setRadioButtonActive}
+            handleSortBy={handleSortBy}
         />
         <div
             className='main-container d-flex flex-wrap'

@@ -10,7 +10,7 @@ function Application({ getProducts, productList }) {
 
     const navigate = useNavigate();
 
-    const [productListA, setProductListA] = useState([]);
+    const [productListLocal, setProductListLocal] = useState([]);
     const [isBasic, setIsBasic] = useState(false);
     const [radioButtonActive, setRadioButtonActive] = useState(1);
 
@@ -21,13 +21,13 @@ function Application({ getProducts, productList }) {
         setIsBasic(isBasics);
 
         if (isBasics) {
-            const filteredList = productListA.filter(item => item.basics);
-            setProductListA(filteredList);
+            const filteredList = productListLocal.filter(item => item.basics);
+            setProductListLocal(filteredList);
             return;
         }
 
         setRadioButtonActive(0);
-        setProductListA(productList.records);
+        setProductListLocal(productList.records);
 
     }
 
@@ -42,7 +42,7 @@ function Application({ getProducts, productList }) {
                     if (item === 3 && (element.price >= 101 && element.price <= 200)) return item;
                 });
 
-            setProductListA(filteredList);
+            setProductListLocal(filteredList);
             return;
         }
 
@@ -52,8 +52,15 @@ function Application({ getProducts, productList }) {
             if (item === 3 && (element.price >= 101 && element.price <= 200)) return item;
         });
 
-        setProductListA(filteredList);
+        setProductListLocal(filteredList);
 
+    }
+
+    const handleSortBy = (item) => {
+        const copyArray = productListLocal.map((el) => el);
+        // const copyArray = productListLocal.sort((a, b) => a[item] - b[item]);
+        // console.log('copyArray', copyArray)
+        setProductListLocal(copyArray.sort((a, b) => b[item] - a[item]));
     }
 
     useEffect(() => {
@@ -64,7 +71,7 @@ function Application({ getProducts, productList }) {
 
     useEffect(() => {
         if (productList?.records?.length > 0) {
-            setProductListA(productList?.records);
+            setProductListLocal(productList?.records);
             navigate('/shopping')
         }
     }, [productList, navigate])
@@ -76,9 +83,10 @@ function Application({ getProducts, productList }) {
                 handlePricesOptions={handlePricesOptions}
                 radioButtonActive={radioButtonActive}
                 setRadioButtonActive={setRadioButtonActive}
+                handleSortBy={handleSortBy}
 
             />}>
-            <Route path='shopping' element={<MainPage productList={productListA} />} />
+            <Route path='shopping' element={<MainPage productList={productListLocal} />} />
         </Route>
     </Routes>
 }
