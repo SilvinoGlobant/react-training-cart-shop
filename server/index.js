@@ -5,6 +5,7 @@ var cors = require('cors');
 
 const axios = require('axios');
 const mockProducts = require('./mock-products');
+const mockDetail = require('./mock-detail');
 
 app.use(cors());
 
@@ -55,7 +56,7 @@ app.get('/products/:productId', (req, res) => {
       const imgData = results.data;
       const productId = parseInt(req.params.productId);
       result = result.find((product) => product.id === productId);
-      res.json({ ...result, img: imgData[productId - 1].download_url });
+      res.json([{ ...result, img: imgData[productId - 1].download_url }]);
     })
     .catch((err) => {
       console.log(err);
