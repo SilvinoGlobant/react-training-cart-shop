@@ -1,0 +1,119 @@
+.product-details {
+    .product-detail-img {
+        margin-right: 181px;
+        img {
+            height: 250px;
+            height: 334px;
+        }
+    }
+
+    .product-detail {
+        width: 380px;
+        height: 293px;
+        // border: 1px solid crimson;
+
+        .product-detail-title {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 42px;
+            margin-bottom: 10px;
+
+        }
+
+        .product-detail-rate-comments {
+            margin-bottom: 18px;
+
+            .start-rate-container {
+                img {
+                    height: 20px;
+                    width: 20px;
+                }
+
+                margin-right:11px;
+            }
+
+            .comment-container {
+                span {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 21px;
+
+                }
+
+                img {
+                    width: 18px;
+                    height: 15px;
+                }
+            }
+        }
+
+        .product-detail-amount-container {
+            margin-bottom: 14px;
+            align-items: center;
+
+            .product-detail-amount {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 36px;
+                line-height: 42px;
+                margin: 0;
+            }
+
+            .badge {
+                width: 118px;
+                height: 30px;
+                margin-left: 18px;
+                color: white;
+            }
+        }
+
+        .product-detail-text {
+            // border: 1px solid red;
+            margin-bottom: 7px;
+
+            p {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+                margin: 0;
+            }
+        }
+
+        .product-detail-button-container {
+            margin-top: 28px;
+
+            button {
+                width: 380px;
+                height: 32px;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 19px;
+                /* identical to box height */
+                border: 1px solid black;
+
+                color: #FFFFFF;
+                background-color: #2ECC71;
+
+            }
+        }
+
+        small {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #2980B9;
+
+        }
+    }
+}

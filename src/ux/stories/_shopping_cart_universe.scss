@@ -34,7 +34,7 @@
 }
 
 .align-items-center {
-  justify-content: center;
+  align-items: center;
 }
 
 .w-100 {
@@ -54,3 +54,5 @@
 @import '../sidebar/sidebar';
 @import '../views/our_products/our_products';
 @import '../product_item/product_item';
+
+@import './product_detail/product_detail.scss'
