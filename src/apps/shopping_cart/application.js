@@ -4,7 +4,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { productsActions } from './actions';
 import { currentListSelector } from './selectors';
 import Layout from './components/layout';
-import MainPage from './components/main_page'
+import MainPage from './components/main_page';
+import ProductsDetailProxy from '../shopping_cart/components/product_details'
 
 function Application({ getProducts, productList }) {
 
@@ -87,6 +88,7 @@ function Application({ getProducts, productList }) {
 
             />}>
             <Route path='shopping' element={<MainPage productList={productListLocal} />} />
+            <Route path='shopping/:productId' element={<ProductsDetailProxy />} />
         </Route>
     </Routes>
 }
@@ -102,4 +104,13 @@ export default connect(
     })
 
 )(Application);
+
+const Demo = () => {
+    return <div>
+        <h1>Details Products</h1>
+        <h1>Details Products</h1>
+        <h1>Details Products</h1>
+        <h1>Details Products</h1>
+    </div>
+}
 
