@@ -1,6 +1,7 @@
 import React from 'react';
 import coffe from '../../../assets/coffe.svg';
 import recyclebin from '../../../assets/recycle-bin.png';
+import close from '../../../assets/close.png';
 
 export default {
     title: 'Core/Cart',
@@ -26,6 +27,7 @@ CartProductItem.args = {};
 
 const Cart = (args) => (
     <div className='cart d-flex flex-column'>
+        <img className='cart-close' src={close} alt="" />
         <span>Cart:</span>
         <div className='cart-subtotal d-flex align-items-center'>
             <p>Subtotal: </p>

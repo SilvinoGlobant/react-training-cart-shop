@@ -3,7 +3,14 @@
     padding-left: 46px;
     padding-right: 77px;
     height: 100vh;
+
     // border: 1px solid #000000;
+    img.cart-close {
+        position: absolute;
+        width: 30px;
+        top: 19px;
+        right: 28px;
+    }
 
     span {
         margin-top: 31px;
