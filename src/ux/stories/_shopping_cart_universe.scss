@@ -40,6 +40,9 @@
 .w-100 {
   width: 100%;
 }
+.w-50 {
+  width: 50%;
+}
 
 .m-0 {
   margin: 0;
@@ -61,3 +64,4 @@
 @import './views/details/details';
 @import './cart/cart';
 @import './views/cart_view/cart_view.scss';
+@import './form_payment/form_payment.scss';

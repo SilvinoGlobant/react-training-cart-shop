@@ -1,0 +1,40 @@
+.form-payment {
+    width: 518px;
+
+    form {
+
+        label {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        .shipping-title {
+            margin-bottom: 24px;
+        }
+
+        .form-payment-sizedm {
+            width: 250px;
+            margin-right: 18px;
+            margin-bottom: 11px;
+        }
+
+        .form-payment-sized {
+            width: 250px;
+            margin-bottom: 11px;
+        }
+
+        .form-payment-sizedl {
+            // width: 250px;
+            margin-bottom: 11px;
+        }
+
+        .shipping-card {
+            margin-top: 13px;
+            margin-bottom: 24px;
+        }
+    }
+
+}
