@@ -2,6 +2,9 @@
     width: 518px;
 
     form {
+        input {
+            height: 34px;
+        }
 
         label {
             font-family: Roboto;
@@ -13,6 +16,7 @@
 
         .shipping-title {
             margin-bottom: 24px;
+
         }
 
         .form-payment-sizedm {
