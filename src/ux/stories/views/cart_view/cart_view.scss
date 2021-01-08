@@ -1,5 +1,7 @@
 .cart-view {
     position: absolute;
+    z-index: 500;
+    top: 0;
 
     .cart-view-black {
         background: rgba(12, 12, 12, 0.53);

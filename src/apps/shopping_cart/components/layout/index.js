@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'ux/header/header';
 import Sidebar from 'ux/sidebar';
+import { CartViewDemo } from '../../../../ux/stories/views/cart_view/cart_view.stories'
 
 export default function Layout({
     handleFilterList,
@@ -21,7 +22,7 @@ export default function Layout({
         setIsOpenSidebar(false)
     }
 
-    return <>
+    return <div style={{ position: 'relative' }}>
         <Header
             handleIsOpenSidebar={handleIsOpenSidebar}
         />
@@ -46,6 +47,8 @@ export default function Layout({
             <Outlet />
         </div>
 
-    </>
+        <CartViewDemo />
+
+    </div>
 }
 
