@@ -1,0 +1,110 @@
+.cart {
+    width: 493px;
+    padding-left: 46px;
+    padding-right: 77px;
+    height: 100vh;
+    // border: 1px solid #000000;
+
+    span {
+        margin-top: 31px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 34px;
+    }
+
+    .cart-subtotal {
+        margin-bottom: 15px;
+
+        p {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+            margin: 0;
+            margin-right: 4px;
+        }
+
+        span {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+            margin: 0;
+            margin-bottom: 0px;
+        }
+    }
+
+    button {
+        // position: absolute;
+        width: 370px;
+        height: 32px;
+        left: 0px;
+        top: 0px;
+        color: white;
+        // border: 1px solid #000000;
+        background: #2980B9;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+.cart-product-item {
+    position: relative;
+    // border: 1px solid black;
+    width: 370px;
+    height: 70px;
+    margin-top: 37px;
+
+    img {
+        width: 52px;
+    }
+
+    .badge-cart-product-item {
+        position: absolute;
+        top: 0;
+        width: 59px;
+        height: 15px;
+        color: white;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    span {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        margin-left: 16.65px;
+    }
+
+    p {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        margin-left: 77px;
+    }
+
+    img.trash {
+
+        width: 25px;
+        height: 25px;
+        margin-left: 32px;
+        top: 23px;
+
+    }
+}
