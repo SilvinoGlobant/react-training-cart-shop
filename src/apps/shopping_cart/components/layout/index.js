@@ -4,26 +4,17 @@ import { Header } from 'ux/header/header';
 import Sidebar from 'ux/sidebar';
 import { CartViewDemo } from '../../../../ux/stories/views/cart_view/cart_view.stories'
 
-export default function Layout({
-    handleFilterList,
-    handlePricesOptions,
-    radioButtonActive,
-    setRadioButtonActive,
-    handleSortBy
-}) {
+export default function Layout() {
 
-    const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+    const [isOpenCartView, setIsOpenCartView] = useState(false);
 
-    const handleIsOpenSidebar = () => {
-        setIsOpenSidebar(!isOpenSidebar)
+    const handleCartView = () => {
+        setIsOpenCartView(!isOpenCartView)
     }
-    const handleCloseSidebar = () => {
-        if (!isOpenSidebar) return;
-        setIsOpenSidebar(false)
-    }
+
 
     return <div style={{ position: 'relative' }}>
-        <Header handleIsOpenSidebar={handleIsOpenSidebar} />
+        <Header handleCartView={handleCartView} />
         <div
             style={{
                 position: 'relative',
@@ -32,12 +23,11 @@ export default function Layout({
                 marginTop: 90,
                 marginLeft: 259,
             }}
-            onClick={handleCloseSidebar}
         >
             <Outlet />
         </div>
 
-        <CartViewDemo />
+        {isOpenCartView && <CartViewDemo />}
 
     </div>
 }

@@ -19,7 +19,6 @@ function Application({ getProducts, productList }) {
 
     useEffect(() => {
         if (productList?.records?.length > 0) {
-            // setProductListLocal(productList?.records);
             navigate('/shopping')
         }
     }, [productList, navigate])
