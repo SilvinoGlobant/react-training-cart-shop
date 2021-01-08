@@ -40,6 +40,7 @@
 .w-100 {
   width: 100%;
 }
+
 .w-50 {
   width: 50%;
 }
@@ -65,3 +66,4 @@
 @import './cart/cart';
 @import './views/cart_view/cart_view.scss';
 @import './form_payment/form_payment.scss';
+@import './product_list_payment/product_list_payment.scss';
