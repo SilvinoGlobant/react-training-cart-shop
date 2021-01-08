@@ -4,6 +4,7 @@
     padding-right: 77px;
     height: 100vh;
     background-color: white;
+    position: relative;
 
     // border: 1px solid #000000;
     img.cart-close {
@@ -79,7 +80,7 @@
     .badge-cart-product-item {
         position: absolute;
         top: 0;
-        width: 59px;
+        width: 51px;
         height: 15px;
         color: white;
         font-family: Roboto;

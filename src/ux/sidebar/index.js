@@ -29,7 +29,7 @@ export default function Sidebar({
     }
 
     return (
-        <div className={isOpen ? 'sidebar' : 'sidebar-close'}>
+        <div className='sidebar'>
             <div className="sidebar-options">
                 <div className="filters">
                     <p className='filters-title'>Filters</p>

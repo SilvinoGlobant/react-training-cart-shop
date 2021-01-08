@@ -23,17 +23,7 @@ export default function Layout({
     }
 
     return <div style={{ position: 'relative' }}>
-        <Header
-            handleIsOpenSidebar={handleIsOpenSidebar}
-        />
-        <Sidebar
-            isOpen={isOpenSidebar}
-            handleFilterList={handleFilterList}
-            handlePricesOptions={handlePricesOptions}
-            radioButtonActive={radioButtonActive}
-            setRadioButtonActive={setRadioButtonActive}
-            handleSortBy={handleSortBy}
-        />
+        <Header handleIsOpenSidebar={handleIsOpenSidebar} />
         <div
             style={{
                 position: 'relative',
