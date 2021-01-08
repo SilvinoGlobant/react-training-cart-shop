@@ -39,7 +39,7 @@ export default function Layout({
                 width: '100%',
                 height: '100vh',
                 marginTop: 90,
-                marginLeft: 347,
+                marginLeft: 259,
             }}
             onClick={handleCloseSidebar}
         >

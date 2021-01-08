@@ -51,7 +51,7 @@ ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
             <small>See more.</small>
             <div className='product-detail-button-container'>
                 <button
-                >See details</button>
+                >Add to cart</button>
             </div>
         </div>
     </div>

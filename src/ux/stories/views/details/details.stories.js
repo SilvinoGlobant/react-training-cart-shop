@@ -12,10 +12,14 @@ export default {
 
 const Details = () => (
 
-    <div className='details w-100 d-flex flex-column align-items-center'>
-        <ProductDatailDemo />
-        <CommentsDemo />
+    <div className='details-container'>
+        <div className='details w-100 d-flex flex-column'>
+            <ProductDatailDemo />
+            <CommentsDemo />
+        </div>
     </div>
+
+
 
 )
 

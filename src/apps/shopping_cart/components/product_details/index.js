@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { productActions } from '../../actions';
+import { DetailsDemo } from 'ux/stories/views/details/details.stories';
 
 function ProductsDetailProxy({ getProductsDetail }) {
 
@@ -12,9 +13,8 @@ function ProductsDetailProxy({ getProductsDetail }) {
         getProductsDetail(productId)
     }, [productId, getProductsDetail])
 
-    return <div>
-        <h1>Poducts details (proxy )</h1>
-    </div>
+    return <DetailsDemo />
+
 
 }
 export default connect(
