@@ -3,9 +3,23 @@ import Sidebar from 'ux/sidebar';
 
 import { ProductItem } from '../../product_item';
 
-export const OurProducts = ({ list, navigateToDetails }) =>
-    <div className='our-products'>
-        <Sidebar />
+export function OurProducts({
+    list,
+    navigateToDetails,
+    handleFilterList,
+    handlePricesOptions,
+    radioButtonActive,
+    setRadioButtonActive,
+    handleSortBy
+}) {
+    return <div className='our-products'>
+        <Sidebar
+            handleFilterList={handleFilterList}
+            handlePricesOptions={handlePricesOptions}
+            radioButtonActive={radioButtonActive}
+            setRadioButtonActive={setRadioButtonActive}
+            handleSortBy={handleSortBy}
+        />
         <div className='our-products-title'>
             <p>Our products:</p>
         </div>
@@ -13,6 +27,8 @@ export const OurProducts = ({ list, navigateToDetails }) =>
             {list.map(item => <ProductItem key={`item-${item.id}`} {...item} navigateToDetails={navigateToDetails} />)}
         </div>
     </div>;
+}
+
 
 
 
