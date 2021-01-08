@@ -8,7 +8,7 @@ export default function OurProductsProxy({ productList }) {
 
     const [productListLocal, setProductListLocal] = useState([]);
     const [isBasic, setIsBasic] = useState(false);
-    const [radioButtonActive, setRadioButtonActive] = useState(1);
+    const [radioButtonActive, setRadioButtonActive] = useState(0);
 
     const handleFilterList = (event) => {
 
@@ -67,7 +67,8 @@ export default function OurProductsProxy({ productList }) {
     }, [productList])
 
     return <OurProducts
-        list={productListLocal} navigateToDetails={navigateToDetails}
+        list={productListLocal}
+        navigateToDetails={navigateToDetails}
         handleFilterList={handleFilterList}
         handlePricesOptions={handlePricesOptions}
         radioButtonActive={radioButtonActive}
