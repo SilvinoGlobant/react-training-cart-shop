@@ -6,14 +6,13 @@ export default function ProductDetails({ product }) {
 
     if (!product) return <h4>Loading...</h4>
 
-    console.log('product', product)
-    const { description, name } = product;
+    const { comments } = product;
 
     return (
         <div className='details-container'>
             <div className='details w-100 d-flex flex-column'>
                 <ProductDetail {...product} />
-                <Comments />
+                <Comments comments={comments} />
             </div>
         </div>
     );
