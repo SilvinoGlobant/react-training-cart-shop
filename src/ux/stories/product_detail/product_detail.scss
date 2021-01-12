@@ -75,18 +75,26 @@
             }
         }
 
+        .cut-text {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            // width: 160px;
+            // height: 1.2em;
+            white-space: nowrap;
+        }
+
         .product-detail-text {
             // border: 1px solid red;
             margin-bottom: 7px;
 
-            p {
-                font-family: Roboto;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 16px;
-                margin: 0;
-            }
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            margin: 0;
+
         }
 
         .product-detail-button-container {
