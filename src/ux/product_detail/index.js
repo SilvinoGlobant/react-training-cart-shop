@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import coffe from '../../assets/coffe.svg';
 import star_rate from '../../assets/star-rate.svg';
 import comment from '../../assets/comment.png';
 
 
 export default function ProductDetail({ description, name, img, price }) {
+
+    const [isActiveSeeMore, setIsActiveSeeMore] = useState(false);
+    const handleSeemMore = () => {
+        setIsActiveSeeMore(!isActiveSeeMore)
+    }
 
     return <div className='product-details d-flex '>
         <div className='product-detail-img'>
@@ -33,13 +38,10 @@ export default function ProductDetail({ description, name, img, price }) {
                     <span >BASIC</span>
                 </div>
             </div>
-            <div className='product-detail-text'>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+            <div className={`product-detail-text ${isActiveSeeMore ? '' : 'cut-text'}`}>
+                {description}
             </div>
-            <small>See more.</small>
+            <small onClick={handleSeemMore}>{isActiveSeeMore ? 'See less' : 'See more'}</small>
             <div className='product-detail-button-container'>
                 <button
                 >Add to cart</button>
