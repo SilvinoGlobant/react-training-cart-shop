@@ -2,14 +2,16 @@ import apiAction from '../../action';
 const reducer = 'products/load';
 
 export default {
-    get: () => apiAction({
+    get: ({ page }) => apiAction({
         request: {
             url: 'http://localhost:8080/products',
-            // params:{
-            //     incl
-            // }
+            params: {
+                page
+            }
         },
         reducer,
+        append: page ? true : false,
+        // prepend: gt ? true : false,
     }),
     getDetails: (productId) => apiAction({
         request: {
@@ -22,3 +24,5 @@ export default {
         store: 'currentProductDetail'
     }),
 }
+
+

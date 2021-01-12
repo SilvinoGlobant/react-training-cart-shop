@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OurProducts } from '../../../../ux/views/our_products';
+import useInfiniteScroll from '../../hooks/useInfiniteScroll'
 
-export default function OurProductsProxy({ productList }) {
+export default function OurProductsProxy({ productList, getProducts }) {
 
     const navigate = useNavigate();
 
     const [productListLocal, setProductListLocal] = useState([]);
     const [isBasic, setIsBasic] = useState(false);
     const [radioButtonActive, setRadioButtonActive] = useState(0);
+
+    const [isMoreData, setIsMoreData] = useState(true);
+
+    const [, setIsFetching] = useInfiniteScroll(() => {
+
+        console.log('Lanzando peticion de actualizacion ')
+        // if (productListLocal) {
+
+        getProducts({ page: 2 })
+            .then(response => {
+                if (response.data) {
+                    setIsMoreData(false);
+                }
+            })
+            .finally(() => setIsFetching(false));
+        // }
+    });
+
 
     const handleFilterList = (event) => {
 

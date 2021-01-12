@@ -30,7 +30,7 @@ function Application({ getProducts, productList }) {
 
     return <Routes>
         <Route path='/' element={<Layout navigateToShopping={navigateToShopping} />}>
-            <Route path='shopping' element={<OurProductsProxy productList={productList} />} />
+            <Route path='shopping' element={<OurProductsProxy productList={productList} getProducts={getProducts} />} />
             <Route path='shopping/:productId' element={<ProductsDetailProxy />} />
             <Route path='payment' element={<PaymentDemo />} />
         </Route>
@@ -44,7 +44,7 @@ export default connect(
     }),
 
     dispatch => ({
-        getProducts: () => dispatch(productsActions.get())
+        getProducts: (params = {}) => dispatch(productsActions.get(params))
     })
 
 )(Application);
