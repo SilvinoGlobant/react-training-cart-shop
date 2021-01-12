@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'ux/header/header';
-import Sidebar from 'ux/sidebar';
 import { CartViewDemo } from '../../../../ux/stories/views/cart_view/cart_view.stories'
 
-export default function Layout() {
+export default function Layout({ navigateToShopping }) {
 
     const [isOpenCartView, setIsOpenCartView] = useState(false);
 
@@ -12,9 +11,13 @@ export default function Layout() {
         setIsOpenCartView(!isOpenCartView)
     }
 
+    const handleCloseCartView = () => {
+        setIsOpenCartView(false)
+    }
+
 
     return <div style={{ position: 'relative' }}>
-        <Header handleCartView={handleCartView} />
+        <Header handleCartView={handleCartView} navigateToShopping={navigateToShopping} />
         <div
             style={{
                 position: 'relative',
@@ -27,7 +30,7 @@ export default function Layout() {
             <Outlet />
         </div>
 
-        {isOpenCartView && <CartViewDemo />}
+        {isOpenCartView && <CartViewDemo handleCloseCartView={handleCloseCartView} />}
 
     </div>
 }
