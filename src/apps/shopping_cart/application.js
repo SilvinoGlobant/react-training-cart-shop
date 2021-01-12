@@ -12,6 +12,10 @@ function Application({ getProducts, productList }) {
 
     const navigate = useNavigate();
 
+    const navigateToShopping = () => {
+        navigate('/shopping');
+    }
+
     useEffect(() => {
         if (!productList.records) {
             getProducts();
@@ -25,7 +29,7 @@ function Application({ getProducts, productList }) {
     }, [productList, navigate])
 
     return <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout navigateToShopping={navigateToShopping} />}>
             <Route path='shopping' element={<OurProductsProxy productList={productList} />} />
             <Route path='shopping/:productId' element={<ProductsDetailProxy />} />
             <Route path='payment' element={<PaymentDemo />} />
