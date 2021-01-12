@@ -12,3 +12,14 @@ export const currentListSelector = createSelector(
         }
     }
 )
+const currentProduct = (state) => {
+    return state.cart.api.core.products.currentProduct;
+}
+
+export const currentProductSelector = createSelector(
+    [currentProduct], (currentProduct) => {
+        if (currentProduct) {
+            return currentProduct;
+        }
+    }
+)
