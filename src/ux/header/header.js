@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import shopping_cart from '../../assets/cart.svg'
 import globant_shops from '../../assets/globant-shops.svg'
 
-export const Header = ({ handleCartView }) => (
+export const Header = ({ handleCartView, navigateToShopping }) => (
 	<div className="header bg-primary d-flex justify-content-between">
-		<div className='globant-shops'>
+		<div className='globant-shops' onClick={navigateToShopping}>
 			<img src={globant_shops} alt='globant_shops' />
 		</div>
 		<div className='shopping-cart' onClick={handleCartView}>
