@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header } from 'ux/header/header';
-import { CartViewDemo } from '../../../../ux/stories/views/cart_view/cart_view.stories'
+import CartView from 'ux/views/cart'
 
 export default function Layout({ navigateToShopping }) {
 
+    const navigate = useNavigate();
     const [isOpenCartView, setIsOpenCartView] = useState(false);
 
     const handleCartView = () => {
@@ -13,6 +14,11 @@ export default function Layout({ navigateToShopping }) {
 
     const handleCloseCartView = () => {
         setIsOpenCartView(false)
+    }
+
+    const navigateToPayment = () => {
+        handleCloseCartView();
+        navigate('/payment');
     }
 
 
@@ -30,7 +36,7 @@ export default function Layout({ navigateToShopping }) {
             <Outlet />
         </div>
 
-        {isOpenCartView && <CartViewDemo handleCloseCartView={handleCloseCartView} />}
+        {isOpenCartView && <CartView handleCloseCartView={handleCloseCartView} navigateToPayment={navigateToPayment} />}
 
     </div>
 }
