@@ -6,7 +6,8 @@ export default combineReducers({
         core: combineReducers({
             products: combineReducers({
                 list: apiReducer('products/load'),
-                currentProduct: apiReducer('product/load-details')
+                currentProduct: apiReducer('product/load-details'),
+                paymentProducts: apiReducer('cart/add/products')
             })
         })
     })

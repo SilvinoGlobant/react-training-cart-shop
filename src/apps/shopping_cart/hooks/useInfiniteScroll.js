@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 
 const useInfiniteScroll = (callback) => {
-
-    console.log('ejcutando hook')
     const [isFetching, setIsFetching] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
 

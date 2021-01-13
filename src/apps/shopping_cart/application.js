@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { productsActions } from './actions';
+import { productsActions, cartActions } from './actions';
 import { currentListSelector } from './selectors';
 import Layout from './components/layout';
 import OurProductsProxy from './components/our_products';
 import ProductsDetailProxy from '../shopping_cart/components/product_details';
 import { PaymentDemo } from '../../ux/stories/views/payment/payment.stories'
 
-function Application({ getProducts, productList }) {
+function Application({ getProducts, productList, addProduct }) {
 
     const navigate = useNavigate();
 
     const navigateToShopping = () => {
         navigate('/shopping');
     }
+
+
+
+    setTimeout(() => {
+        addProduct({
+            product: [
+                {
+                    string: `${Math.random().toString(32).slice(2)}`
+                }
+            ]
+        })
+    }, 2000);
+
 
     useEffect(() => {
         if (!productList.records) {
@@ -44,7 +57,8 @@ export default connect(
     }),
 
     dispatch => ({
-        getProducts: (params = {}) => dispatch(productsActions.get(params))
+        getProducts: (params = {}) => dispatch(productsActions.get(params)),
+        addProduct: (params = {}) => dispatch(cartActions.add(params))
     })
 
 )(Application);
