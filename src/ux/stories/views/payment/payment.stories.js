@@ -12,7 +12,7 @@ export default {
 };
 
 const Payment = () => (
-    <div className='payment d-flex w-100 justify-content-between'>
+    <div className='payment d-flex w-100'>
         <FormPaymentDemo />
         <ProductListPaymentDemo />
     </div>
