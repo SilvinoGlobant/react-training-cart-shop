@@ -17,9 +17,7 @@ export default function Cart({ handleCloseCartView, navigateToPayment, productLi
             </div>
             <button onClick={navigateToPayment}>Proceed to payment</button>
             <div className='cart-product-list'>
-
                 {records.map(record => {
-                    console.log('record', record)
                     return <CartProductItem key={record.uuid}  {...record} />
                 })}
             </div>

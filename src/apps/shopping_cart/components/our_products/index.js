@@ -15,7 +15,7 @@ export default function OurProductsProxy({ productList, getProducts, addProduct 
 
     const [, setIsFetching] = useInfiniteScroll(() => {
 
-        console.log('Lanzando peticion de actualizacion ')
+        // console.log('Lanzando peticion de actualizacion ')
         // if (productListLocal) {
 
         getProducts({ page: 2 })

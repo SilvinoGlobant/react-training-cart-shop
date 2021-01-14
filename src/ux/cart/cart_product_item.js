@@ -14,7 +14,7 @@ export default function CartProductItem({
         <div className='cart-product-item d-flex align-items-center'>
             <img src={img} alt="coffe" />
             <small className='badge-cart-product-item bg-third d-flex justify-content-center'>BASIC</small>
-            <span>{name}</span>
+            <span className='cart-product-name'>{name}</span>
             <p>${price}</p>
             <img className='trash' src={recyclebin} alt="" />
         </div>
