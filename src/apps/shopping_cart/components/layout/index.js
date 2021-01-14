@@ -1,9 +1,9 @@
-import { currentPaymentProductsSelector } from 'apps/shopping_cart/selectors';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Header from 'ux/header/header';
 import CartView from 'ux/views/cart'
+import { currentPaymentProductsSelector } from 'apps/shopping_cart/selectors';
 
 function Layout({ navigateToShopping, productListPayment, removeProduct }) {
 

@@ -6,7 +6,7 @@ import { currentListSelector } from './selectors';
 import Layout from './components/layout';
 import OurProductsProxy from './components/our_products';
 import ProductsDetailProxy from '../shopping_cart/components/product_details';
-import { PaymentDemo } from '../../ux/stories/views/payment/payment.stories'
+import PaymentProxy from 'apps/shopping_cart/components/payment'
 
 function Application({ getProducts, productList, addProduct, removeProduct }) {
 
@@ -37,7 +37,7 @@ function Application({ getProducts, productList, addProduct, removeProduct }) {
                     getProducts={getProducts}
                     addProduct={addProduct} />} />
             <Route path='shopping/:productId' element={<ProductsDetailProxy addProduct={addProduct} />} />
-            <Route path='payment' element={<PaymentDemo />} />
+            <Route path='payment' element={<PaymentProxy />} />
         </Route>
     </Routes>
 }
