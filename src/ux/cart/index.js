@@ -2,7 +2,7 @@ import React from 'react';
 import close from '../../assets/close.png';
 import CartProductItem from './cart_product_item';
 
-export default function Cart({ handleCloseCartView, navigateToPayment, productListPayment }) {
+export default function Cart({ handleCloseCartView, navigateToPayment, productListPayment, removeProduct }) {
 
     let { records } = productListPayment;
     if (!records) return null;
@@ -22,7 +22,7 @@ export default function Cart({ handleCloseCartView, navigateToPayment, productLi
             <button onClick={navigateToPayment}>Proceed to payment</button>
             <div className='cart-product-list'>
                 {records.map(record => {
-                    return <CartProductItem key={record.uuid}  {...record} />
+                    return <CartProductItem key={record.uuid}  {...record} removeProduct={removeProduct} />
                 })}
             </div>
         </div>

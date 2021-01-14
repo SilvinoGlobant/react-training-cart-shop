@@ -17,6 +17,26 @@ export default {
 
     }),
 
+    remove: ({ product }) => localAction({
+        request: {
+            method: 'DELETE',
+            params: {
+                product
+            }
+        },
+        reducer,
+        data: {
+            product
+        },
+        onResponse: (response, options) => {
+            if (response.status === 200) {
+                options.removeAt = (record) => record.uuid === product.uuid
+            }
+        }
+
+    })
+
+
 }
 
 

@@ -8,7 +8,7 @@ import OurProductsProxy from './components/our_products';
 import ProductsDetailProxy from '../shopping_cart/components/product_details';
 import { PaymentDemo } from '../../ux/stories/views/payment/payment.stories'
 
-function Application({ getProducts, productList, addProduct }) {
+function Application({ getProducts, productList, addProduct, removeProduct }) {
 
     const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function Application({ getProducts, productList, addProduct }) {
     }, [productList, navigate])
 
     return <Routes>
-        <Route path='/' element={<Layout navigateToShopping={navigateToShopping} />}>
+        <Route path='/' element={<Layout navigateToShopping={navigateToShopping} removeProduct={removeProduct} />}>
             <Route
                 path='shopping'
                 element={<OurProductsProxy
@@ -48,7 +48,8 @@ export default connect(
     }),
     dispatch => ({
         getProducts: (params = {}) => dispatch(productsActions.get(params)),
-        addProduct: (params = {}) => dispatch(cartActions.add(params))
+        addProduct: (params = {}) => dispatch(cartActions.add(params)),
+        removeProduct: (params = {}) => dispatch(cartActions.remove(params)),
     })
 )(Application);
 

@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Header from 'ux/header/header';
 import CartView from 'ux/views/cart'
 
-function Layout({ navigateToShopping, productListPayment }) {
+function Layout({ navigateToShopping, productListPayment, removeProduct }) {
 
     const navigate = useNavigate();
     const [isOpenCartView, setIsOpenCartView] = useState(false);
@@ -46,6 +46,7 @@ function Layout({ navigateToShopping, productListPayment }) {
             handleCloseCartView={handleCloseCartView}
             navigateToPayment={navigateToPayment}
             productListPayment={productListPayment}
+            removeProduct={removeProduct}
         />}
 
     </div>
