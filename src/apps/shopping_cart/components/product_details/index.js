@@ -5,7 +5,7 @@ import { productActions } from '../../actions';
 import ProductDetails from 'ux/views/details';
 import { currentProductSelector } from 'apps/shopping_cart/selectors';
 
-function ProductsDetailProxy({ getProductsDetail, currentProduct }) {
+function ProductsDetailProxy({ getProductsDetail, currentProduct, addProduct }) {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
@@ -20,7 +20,7 @@ function ProductsDetailProxy({ getProductsDetail, currentProduct }) {
         setProduct(currentProduct.record)
     }, [currentProduct])
 
-    return <ProductDetails product={product} />
+    return <ProductDetails product={product} addProduct={addProduct} />
 
 }
 export default connect(

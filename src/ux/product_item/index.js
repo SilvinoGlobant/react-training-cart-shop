@@ -4,6 +4,7 @@ import star_rate from '../../assets/star-rate.svg';
 import comment from '../../assets/comment.png';
 
 export function ProductItem({
+    addProduct,
     id,
     name,
     rate,
@@ -14,6 +15,25 @@ export function ProductItem({
     navigateToDetails
 }) {
 
+
+    const handleAddProduct = () => {
+        if (!addProduct) return;
+        addProduct({
+            product: [
+                {
+                    uuid: `${Math.random().toString(32).slice(2)}`,
+                    id,
+                    name,
+                    rate,
+                    price,
+                    comments,
+                    basics,
+                    img,
+                }
+            ]
+        })
+
+    }
     return <div className="product-item d-flex flex-column">
         {basics ? <span className='badge bg-third d-flex justify-content-center'>BASIC</span> : null}
         <img className='img-item' src={img || coffe} alt="" />
@@ -36,7 +56,7 @@ export function ProductItem({
             <button
                 className='bg-primary'
                 onClick={() => navigateToDetails(id)}>See details</button>
-            <button className='bg-secondary'> Add to cart</button>
+            <button className='bg-secondary' onClick={handleAddProduct}> Add to cart</button>
         </div>
         <div className='w-100 border-bottom' />
     </div>

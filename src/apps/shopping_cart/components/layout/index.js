@@ -1,9 +1,11 @@
+import { currentPaymentProductsSelector } from 'apps/shopping_cart/selectors';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Header } from 'ux/header/header';
+import Header from 'ux/header/header';
 import CartView from 'ux/views/cart'
 
-export default function Layout({ navigateToShopping }) {
+function Layout({ navigateToShopping, productListPayment }) {
 
     const navigate = useNavigate();
     const [isOpenCartView, setIsOpenCartView] = useState(false);
@@ -23,7 +25,11 @@ export default function Layout({ navigateToShopping }) {
 
 
     return <div style={{ position: 'relative' }}>
-        <Header handleCartView={handleCartView} navigateToShopping={navigateToShopping} />
+        <Header
+            handleCartView={handleCartView}
+            navigateToShopping={navigateToShopping}
+            productListPayment={productListPayment}
+        />
         <div
             style={{
                 position: 'relative',
@@ -36,8 +42,18 @@ export default function Layout({ navigateToShopping }) {
             <Outlet />
         </div>
 
-        {isOpenCartView && <CartView handleCloseCartView={handleCloseCartView} navigateToPayment={navigateToPayment} />}
+        {isOpenCartView && <CartView
+            handleCloseCartView={handleCloseCartView}
+            navigateToPayment={navigateToPayment}
+            productListPayment={productListPayment}
+        />}
 
     </div>
 }
+
+export default connect(
+    state => ({
+        productListPayment: currentPaymentProductsSelector(state)
+    })
+)(Layout);
 

@@ -4,11 +4,40 @@ import star_rate from '../../assets/star-rate.svg';
 import comment from '../../assets/comment.png';
 
 
-export default function ProductDetail({ description, name, img, price }) {
+export default function ProductDetail({
+    id,
+    name,
+    rate,
+    price,
+    comments,
+    basics,
+    img,
+    description,
+    addProduct }) {
 
     const [isActiveSeeMore, setIsActiveSeeMore] = useState(false);
+
     const handleSeemMore = () => {
         setIsActiveSeeMore(!isActiveSeeMore)
+    }
+
+    const handleAddProduct = () => {
+        if (!addProduct) return;
+        addProduct({
+            product: [
+                {
+                    uuid: `${Math.random().toString(32).slice(2)}`,
+                    id,
+                    name,
+                    rate,
+                    price,
+                    comments,
+                    basics,
+                    img,
+                }
+            ]
+        })
+
     }
 
     return <div className='product-details d-flex '>
@@ -44,6 +73,7 @@ export default function ProductDetail({ description, name, img, price }) {
             <small onClick={handleSeemMore}>{isActiveSeeMore ? 'See less' : 'See more'}</small>
             <div className='product-detail-button-container'>
                 <button
+                    onClick={handleAddProduct}
                 >Add to cart</button>
             </div>
         </div>

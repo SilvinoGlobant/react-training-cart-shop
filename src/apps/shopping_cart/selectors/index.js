@@ -23,3 +23,14 @@ export const currentProductSelector = createSelector(
         }
     }
 )
+const currentPaymentProducts = (state) => {
+    return state.cart.api.core.products.paymentProducts;
+}
+
+export const currentPaymentProductsSelector = createSelector(
+    [currentPaymentProducts], (currentPaymentProducts) => {
+        if (currentPaymentProducts) {
+            return currentPaymentProducts;
+        }
+    }
+)

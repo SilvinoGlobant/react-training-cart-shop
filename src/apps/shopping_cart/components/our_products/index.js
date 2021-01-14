@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { OurProducts } from '../../../../ux/views/our_products';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll'
 
-export default function OurProductsProxy({ productList, getProducts }) {
+export default function OurProductsProxy({ productList, getProducts, addProduct }) {
 
     const navigate = useNavigate();
 
@@ -86,6 +86,7 @@ export default function OurProductsProxy({ productList, getProducts }) {
     }, [productList])
 
     return <OurProducts
+        addProduct={addProduct}
         list={productListLocal}
         navigateToDetails={navigateToDetails}
         handleFilterList={handleFilterList}

@@ -4,6 +4,7 @@ import Sidebar from 'ux/sidebar';
 import { ProductItem } from '../../product_item';
 
 export function OurProducts({
+    addProduct,
     list,
     navigateToDetails,
     handleFilterList,
@@ -24,7 +25,7 @@ export function OurProducts({
             <p>Our products:</p>
         </div>
         <div className='d-flex flex-wrap'>
-            {list.map(item => <ProductItem key={`item-${item.id}`} {...item} navigateToDetails={navigateToDetails} />)}
+            {list.map(item => <ProductItem key={`item-${item.id}`} {...item} navigateToDetails={navigateToDetails} addProduct={addProduct} />)}
         </div>
     </div>;
 }

@@ -16,19 +16,6 @@ function Application({ getProducts, productList, addProduct }) {
         navigate('/shopping');
     }
 
-
-
-    setTimeout(() => {
-        addProduct({
-            product: [
-                {
-                    string: `${Math.random().toString(32).slice(2)}`
-                }
-            ]
-        })
-    }, 2000);
-
-
     useEffect(() => {
         if (!productList.records) {
             getProducts();
@@ -43,24 +30,26 @@ function Application({ getProducts, productList, addProduct }) {
 
     return <Routes>
         <Route path='/' element={<Layout navigateToShopping={navigateToShopping} />}>
-            <Route path='shopping' element={<OurProductsProxy productList={productList} getProducts={getProducts} />} />
-            <Route path='shopping/:productId' element={<ProductsDetailProxy />} />
+            <Route
+                path='shopping'
+                element={<OurProductsProxy
+                    productList={productList}
+                    getProducts={getProducts}
+                    addProduct={addProduct} />} />
+            <Route path='shopping/:productId' element={<ProductsDetailProxy addProduct={addProduct} />} />
             <Route path='payment' element={<PaymentDemo />} />
         </Route>
     </Routes>
 }
 
 export default connect(
-
     state => ({
         productList: currentListSelector(state)
     }),
-
     dispatch => ({
         getProducts: (params = {}) => dispatch(productsActions.get(params)),
         addProduct: (params = {}) => dispatch(cartActions.add(params))
     })
-
 )(Application);
 
 const Demo = () => {
