@@ -1,8 +1,19 @@
 .form-payment {
+
     width: 518px;
     margin-right: 73px;
 
+
     form {
+
+        .data-wrong {
+            border: 1px solid red;
+        }
+
+        .data-ok {
+            border: 1px solid greenyellow;
+        }
+
         input {
             height: 34px;
         }

@@ -37,7 +37,7 @@ function Application({ getProducts, productList, addProduct, removeProduct }) {
                     getProducts={getProducts}
                     addProduct={addProduct} />} />
             <Route path='shopping/:productId' element={<ProductsDetailProxy addProduct={addProduct} />} />
-            <Route path='payment' element={<PaymentProxy />} />
+            <Route path='payment' element={<PaymentProxy removeProduct={removeProduct} />} />
         </Route>
     </Routes>
 }

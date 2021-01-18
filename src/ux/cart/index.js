@@ -5,7 +5,9 @@ import CartProductItem from './cart_product_item';
 export default function Cart({ handleCloseCartView, navigateToPayment, productListPayment, removeProduct }) {
 
     let { records } = productListPayment;
-    if (!records) return null;
+    if (!records) {
+        return null;
+    }
 
     const amount = records.reduce((total, record) => {
         return total + (+record.price)
@@ -21,6 +23,7 @@ export default function Cart({ handleCloseCartView, navigateToPayment, productLi
             </div>
             <button onClick={navigateToPayment}>Proceed to payment</button>
             <div className='cart-product-list'>
+                {amount === 0 && <span> The list is empty</span>}
                 {records.map(record => {
                     return <CartProductItem key={record.uuid}  {...record} removeProduct={removeProduct} />
                 })}

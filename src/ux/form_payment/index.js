@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import createFormReducer from 'apps/libs/forms/reducer';
 
 const initialFormState = {
@@ -7,7 +7,7 @@ const initialFormState = {
     address: 'Ampliacion Santa Julia ',
     city: 'Pachuca de Soto ',
     state: 'Hidalgo ',
-    zip_code: '42080 ',
+    zip_code: '',
     phone: 7713595210,
     credit_card_number: '3132 4565',
     full_name: 'dsds',
@@ -18,11 +18,43 @@ const initialFormState = {
 }
 const formStateSlice = createFormReducer('cart/payment/products', initialFormState);
 
-export default function FormPayment() {
+export default function FormPayment({ vildateZip, vildateCard }) {
 
     const [formState, dispatchForm] = useReducer(formStateSlice.reducer, initialFormState);
+    const [isValidZipCode, setIsValidZipCode] = useState(false);
+    const [isValidCard, setIsValidCard] = useState(false);
 
     const handleChange = (event) => {
+        if (event.target.name === 'zip_code') {
+            vildateZip(event.target.value)
+                .then(response => {
+                    if (response.data) {
+                        setIsValidZipCode(true)
+                    } else {
+
+                        setIsValidZipCode(false)
+                    }
+                })
+                .catch(err => {
+
+                    setIsValidZipCode(false)
+                });
+        }
+        if (event.target.name === 'credit_card_number') {
+            vildateCard(event.target.value)
+                .then(response => {
+                    if (response.data) {
+                        setIsValidCard(true)
+                    } else {
+
+                        setIsValidCard(false)
+                    }
+                })
+                .catch(err => {
+
+                    setIsValidCard(false)
+                });
+        }
         dispatchForm(formStateSlice.actions.update({
             [event.target.name]: event.target.value
         }));
@@ -33,7 +65,7 @@ export default function FormPayment() {
             <form action="">
 
                 <div className='shipping-title'>
-                    <label >Shippisasng data:</label>
+                    <label >Shipping data:</label>
                 </div>
 
                 <div className='form-payment-shipping d-flex flex-wrap' >
@@ -80,6 +112,7 @@ export default function FormPayment() {
                     <div className='form-payment-sized d-flex flex-column'>
                         <label htmlFor="zip_code">Zip Code</label>
                         <input
+                            className={`${isValidZipCode ? 'data-ok' : 'data-wrong'}`}
                             type="text"
                             name='zip_code'
                             value={formState.zip_code}
@@ -101,6 +134,7 @@ export default function FormPayment() {
                     <div className='form-payment-sizedm d-flex flex-column '>
                         <label htmlFor="credit_card_number">Credit Card Number</label>
                         <input type="text"
+                            className={`${isValidCard ? 'data-ok' : 'data-wrong'}`}
                             name='credit_card_number'
                             value={formState.credit_card_number}
                             onChange={handleChange} />
