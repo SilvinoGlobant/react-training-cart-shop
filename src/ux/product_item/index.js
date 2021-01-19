@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import coffe from '../../assets/coffe.svg';
 import star_rate from '../../assets/star-rate.svg';
 import comment from '../../assets/comment.png';
@@ -15,6 +15,25 @@ export function ProductItem({
     navigateToDetails
 }) {
 
+    const [starts, setStarts] = useState([])
+    const [isHalf, setIsHalf] = useState(false)
+
+
+    const getStarts = () => {
+        const newRate = rate.toString();
+        const newRateIntegers = newRate.split(".")[0]
+        const isHalf = newRate.split(".")[1] === '5' ? true : false;
+        const starts = [];
+        for (let i = 0; i < Number(newRateIntegers); i++) {
+            starts.push({ isInteger: true })
+        }
+        setStarts(starts);
+        setIsHalf(isHalf);
+    }
+
+    useEffect(() => {
+        getStarts()
+    }, [])
 
     const handleAddProduct = () => {
         if (!addProduct) return;
@@ -39,12 +58,13 @@ export function ProductItem({
         <img className='img-item' src={img || coffe} alt="" />
         <p className='title-item'>{name || 'No name'}</p>
         <div className='rate-container d-flex'>
-            <div className='start-rate-container'>
-                <img src={star_rate} alt="" />
-                <img src={star_rate} alt="" />
-                <img src={star_rate} alt="" />
-                <img src={star_rate} alt="" />
-                <img src={star_rate} alt="" />
+            <div className='start-rate-container d-flex justify-content-center align-items-center'>
+                {starts.map(start => <img src={star_rate} alt="" />)}
+                {isHalf && <div className='half-start d-flex  align-items-center'>
+
+                    <img src={star_rate} alt="" />
+                </div>
+                }
             </div>
             <div className='comment-container'>
                 <span>{comments || 0}</span>
