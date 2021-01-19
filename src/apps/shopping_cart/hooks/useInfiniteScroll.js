@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const useInfiniteScroll = (callback) => {
+const useInfiniteScroll = (callback, clientHeight) => {
     const [isFetching, setIsFetching] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
 
     useEffect(() => {
         function handleScroll() {
-            const isButtonNow = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
+            const isButtonNow = clientHeight;
 
             setIsBottom((isBottom) =>
                 isBottom !== isButtonNow ? isButtonNow : isBottom);
@@ -14,7 +14,7 @@ const useInfiniteScroll = (callback) => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [setIsBottom]);
+    }, [setIsBottom, clientHeight]);
 
     useEffect(() => {
         if (isBottom && !isFetching) {

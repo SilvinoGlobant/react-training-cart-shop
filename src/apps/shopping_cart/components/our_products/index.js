@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { OurProducts } from '../../../../ux/views/our_products';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll'
@@ -7,26 +7,29 @@ export default function OurProductsProxy({ productList, getProducts, addProduct 
 
     const navigate = useNavigate();
 
+    const referencia = useRef();
+
+
     const [productListLocal, setProductListLocal] = useState([]);
     const [isBasic, setIsBasic] = useState(false);
     const [radioButtonActive, setRadioButtonActive] = useState(0);
+    const [nextPage, setNextPage] = useState(2)
 
     const [isMoreData, setIsMoreData] = useState(true);
 
     const [, setIsFetching] = useInfiniteScroll(() => {
+        if (isMoreData) {
+            getProducts({ page: nextPage })
+                .then(response => {
+                    if (response.data) {
+                        setIsMoreData(false);
+                    }
+                })
+                .finally(() => setIsFetching(false));
+            // }
+        }
 
-        // console.log('Lanzando peticion de actualizacion ')
-        // if (productListLocal) {
-
-        getProducts({ page: 2 })
-            .then(response => {
-                if (response.data) {
-                    setIsMoreData(false);
-                }
-            })
-            .finally(() => setIsFetching(false));
-        // }
-    });
+    }, referencia?.current?.clientHeight);
 
 
     const handleFilterList = (event) => {
@@ -86,6 +89,7 @@ export default function OurProductsProxy({ productList, getProducts, addProduct 
     }, [productList])
 
     return <OurProducts
+        referencia={referencia}
         addProduct={addProduct}
         list={productListLocal}
         navigateToDetails={navigateToDetails}

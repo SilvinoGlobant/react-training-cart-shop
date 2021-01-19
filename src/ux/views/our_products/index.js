@@ -11,7 +11,7 @@ export function OurProducts({
     handlePricesOptions,
     radioButtonActive,
     setRadioButtonActive,
-    handleSortBy
+    handleSortBy, referencia
 }) {
     return <div className='our-products'>
         <Sidebar
@@ -24,7 +24,7 @@ export function OurProducts({
         <div className='our-products-title'>
             <p>Our products:</p>
         </div>
-        <div className='d-flex flex-wrap'>
+        <div ref={referencia} className='d-flex flex-wrap'>
             {list.map(item => <ProductItem key={`item-${item.id}`} {...item} navigateToDetails={navigateToDetails} addProduct={addProduct} />)}
         </div>
     </div>;
