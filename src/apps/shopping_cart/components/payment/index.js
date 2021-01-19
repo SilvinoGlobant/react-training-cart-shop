@@ -4,13 +4,14 @@ import Payment from '../../../../ux/views/payment';
 import { currentPaymentProductsSelector } from 'apps/shopping_cart/selectors';
 import { paymentActions, orderActions } from '../../actions'
 
-function PaymentProxy({ productListPayment, validateZip, validateCard, removeProduct, createOrder }) {
+function PaymentProxy({ productListPayment, validateZip, validateCard, removeProduct, createOrder, navigateToPaymentSuccess }) {
     return <Payment
         validateZip={validateZip}
         validateCard={validateCard}
         productListPayment={productListPayment}
         removeProduct={removeProduct}
         createOrder={createOrder}
+        navigateToPaymentSuccess={navigateToPaymentSuccess}
     />
 }
 

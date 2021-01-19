@@ -22,13 +22,19 @@ const initialFormState = {
 const formStateSlice = createFormReducer('cart/payment/products', initialFormState);
 
 
-export default function Payment({ validateZip, validateCard, productListPayment, removeProduct, createOrder }) {
+export default function Payment({ validateZip, validateCard, productListPayment, removeProduct, createOrder, navigateToPaymentSuccess }) {
 
     const [formState, dispatchForm] = useReducer(formStateSlice.reducer, initialFormState);
     const [isValidZipCode, setIsValidZipCode] = useState(false);
     const [isValidCard, setIsValidCard] = useState(false);
+    const [isErrorOnData, setIsErrorOnData] = useState('');
 
     const handleChange = (event) => {
+
+        if (isErrorOnData) {
+            setIsErrorOnData('')
+        }
+
         if (event.target.name === 'zip_code') {
             validateZip(event.target.value)
                 .then(response => {
@@ -83,7 +89,16 @@ export default function Payment({ validateZip, validateCard, productListPayment,
                 fullName: formState.full_name
             }
         }).then(response => {
+            if (response.data) {
+                setIsErrorOnData('');
+                navigateToPaymentSuccess();
+            } else {
 
+                const { data } = response.response;
+                setIsErrorOnData(data.message)
+
+
+            }
         })
 
     }
@@ -99,6 +114,7 @@ export default function Payment({ validateZip, validateCard, productListPayment,
                 productListPayment={productListPayment}
                 removeProduct={removeProduct}
                 handleSubmitOrder={handleSubmitOrder}
+                isErrorOnData={isErrorOnData}
             />
         </div>
     )

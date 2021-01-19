@@ -7,6 +7,7 @@ import Layout from './components/layout';
 import OurProductsProxy from './components/our_products';
 import ProductsDetailProxy from '../shopping_cart/components/product_details';
 import PaymentProxy from 'apps/shopping_cart/components/payment'
+import PaymentSuccessProxy from 'apps/shopping_cart/components/payment_success'
 
 function Application({ getProducts, productList, addProduct, removeProduct }) {
 
@@ -14,6 +15,9 @@ function Application({ getProducts, productList, addProduct, removeProduct }) {
 
     const navigateToShopping = () => {
         navigate('/shopping');
+    }
+    const navigateToPaymentSuccess = () => {
+        navigate('/payment-success');
     }
 
     useEffect(() => {
@@ -37,7 +41,8 @@ function Application({ getProducts, productList, addProduct, removeProduct }) {
                     getProducts={getProducts}
                     addProduct={addProduct} />} />
             <Route path='shopping/:productId' element={<ProductsDetailProxy addProduct={addProduct} />} />
-            <Route path='payment' element={<PaymentProxy removeProduct={removeProduct} />} />
+            <Route path='payment' element={<PaymentProxy removeProduct={removeProduct} navigateToPaymentSuccess={navigateToPaymentSuccess} />} />
+            <Route path='payment-success' element={<PaymentSuccessProxy />} />
         </Route>
     </Routes>
 }

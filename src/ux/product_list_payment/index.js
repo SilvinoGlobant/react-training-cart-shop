@@ -2,7 +2,7 @@ import React from 'react';
 import CartProductItem from 'ux/cart/cart_product_item';
 
 
-export default function ProductListPayment({ productListPayment, removeProduct, handleSubmitOrder }) {
+export default function ProductListPayment({ productListPayment, removeProduct, handleSubmitOrder, isErrorOnData }) {
 
     let { records } = productListPayment;
     if (!records) return null;
@@ -30,9 +30,11 @@ export default function ProductListPayment({ productListPayment, removeProduct, 
                 <div className=''>
                     {amount > 0 && <button className='w-100' onClick={handleSubmitOrder}>Pay Now</button>}
                 </div>
-                {/* <div className='product-list-payment-errors'>
-                    <p>Some fields are wrong!</p>
-                </div> */}
+
+                {isErrorOnData && <div className='product-list-payment-errors'>
+                    <p>{isErrorOnData}</p>
+                </div>}
+
             </div>
         </div>
     );

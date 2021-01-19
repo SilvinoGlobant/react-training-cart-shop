@@ -33,7 +33,6 @@ export default function apiAction({ request, reducer, store, ...options }) {
                 return response;
             })
             .catch((error, ...args) => {
-
                 dispatch({ type: `${method}: ${reducer}: ERROR`, store, error });
                 return Promise.resolve(error);
             });
