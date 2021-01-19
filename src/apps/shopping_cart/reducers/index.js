@@ -9,6 +9,7 @@ export default combineReducers({
                 currentProduct: apiReducer('product/load-details'),
                 paymentProducts: apiReducer('cart/add/products'),
                 paymentValidations: apiReducer('payment/validate-form'),
+                order: apiReducer('order/new-orders'),
             })
         })
     })

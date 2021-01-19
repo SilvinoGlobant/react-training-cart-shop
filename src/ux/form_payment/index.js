@@ -1,68 +1,9 @@
 import React, { useReducer, useState } from 'react';
-import createFormReducer from 'apps/libs/forms/reducer';
 
-const initialFormState = {
-    name: 'Silvino ',
-    last_name: 'Rodriguez ',
-    address: 'Ampliacion Santa Julia ',
-    city: 'Pachuca de Soto ',
-    state: 'Hidalgo ',
-    zip_code: '',
-    phone: 7713595210,
-    credit_card_number: '3132 4565',
-    full_name: 'dsds',
-    exp_date: 'dsds',
-    cvv: 'dsdsd'
-
-
-}
-const formStateSlice = createFormReducer('cart/payment/products', initialFormState);
-
-export default function FormPayment({ vildateZip, vildateCard }) {
-
-    const [formState, dispatchForm] = useReducer(formStateSlice.reducer, initialFormState);
-    const [isValidZipCode, setIsValidZipCode] = useState(false);
-    const [isValidCard, setIsValidCard] = useState(false);
-
-    const handleChange = (event) => {
-        if (event.target.name === 'zip_code') {
-            vildateZip(event.target.value)
-                .then(response => {
-                    if (response.data) {
-                        setIsValidZipCode(true)
-                    } else {
-
-                        setIsValidZipCode(false)
-                    }
-                })
-                .catch(err => {
-
-                    setIsValidZipCode(false)
-                });
-        }
-        if (event.target.name === 'credit_card_number') {
-            vildateCard(event.target.value)
-                .then(response => {
-                    if (response.data) {
-                        setIsValidCard(true)
-                    } else {
-
-                        setIsValidCard(false)
-                    }
-                })
-                .catch(err => {
-
-                    setIsValidCard(false)
-                });
-        }
-        dispatchForm(formStateSlice.actions.update({
-            [event.target.name]: event.target.value
-        }));
-    }
-
+export default function FormPayment({ formState, isValidZipCode, isValidCard, handleChange }) {
     return (
         <div className='form-payment'>
-            <form action="">
+            <form action="" >
 
                 <div className='shipping-title'>
                     <label >Shipping data:</label>

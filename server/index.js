@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8080;
+const bodyParser = require('body-parser')
 var cors = require('cors');
 
 const axios = require('axios');
@@ -8,6 +9,10 @@ const mockProducts = require('./mock-products');
 const mockDetail = require('./mock-detail');
 
 app.use(cors());
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 app.get('/products', (req, res) => {
   axios.get('https://picsum.photos/v2/list')
